@@ -1,5 +1,7 @@
 import { motion, useMotionValue } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { BsFileEarmarkMedicalFill } from 'react-icons/bs';
+import { FaPhone, FaUserDoctor } from 'react-icons/fa6';
 
 const imgs = [
     '/imgs/nature/1.jpg',
@@ -55,7 +57,7 @@ export const SwipeCarousel = () => {
     };
 
     return (
-        <div className="relative overflow-hidden bg-white py-8">
+        <div className="relative mx-auto overflow-hidden pb-2">
             <motion.div
                 drag="x"
                 dragConstraints={{
@@ -66,7 +68,7 @@ export const SwipeCarousel = () => {
                     x: dragX,
                 }}
                 animate={{
-                    translateX: `-${imgIndex * 100}%`,
+                    translateX: `-${imgIndex * (window.innerWidth > 768 ? 101 : 100)}%`,
                 }}
                 transition={SPRING_OPTIONS}
                 onDragEnd={onDragEnd}
@@ -74,9 +76,8 @@ export const SwipeCarousel = () => {
             >
                 <Images imgIndex={imgIndex} />
             </motion.div>
-
+            <ResponsiveComponent />
             <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} />
-            <GradientEdges />
         </div>
     );
 };
@@ -98,7 +99,7 @@ const Images = ({ imgIndex }) => {
                             scale: imgIndex === idx ? 0.95 : 0.85,
                         }}
                         transition={SPRING_OPTIONS}
-                        className="aspect-video w-screen shrink-0 rounded-xl object-cover"
+                        className="aspect-video w-screen shrink-0 rounded-xl bg-neutral-800 object-cover"
                     />
                 );
             })}
@@ -117,11 +118,11 @@ const Dots = ({ setImgIndex }) => {
 
     return (
         <div className="container items-center">
-            <div className="absolute inset-0 flex items-center justify-between p-4">
+            <div className="absolute inset-0 z-40 flex items-center justify-between p-1 sm:p-4">
                 {/* Previous Button */}
                 <button
                     onClick={handlePrevious}
-                    className="rounded-full bg-black p-2 text-white transition-all hover:bg-black/40"
+                    className="rounded-full bg-black/20 p-1.5 text-white transition-all hover:bg-black sm:p-2 md:p-3"
                     aria-label="Previous image"
                 >
                     <svg
@@ -130,7 +131,7 @@ const Dots = ({ setImgIndex }) => {
                         viewBox="0 0 24 24"
                         strokeWidth={2}
                         stroke="currentColor"
-                        className="h-6 w-6"
+                        className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8"
                     >
                         <path
                             strokeLinecap="round"
@@ -143,7 +144,7 @@ const Dots = ({ setImgIndex }) => {
                 {/* Next Button */}
                 <button
                     onClick={handleNext}
-                    className="rounded-full bg-black p-2 text-white transition-all hover:bg-black/40"
+                    className="rounded-full bg-black/20 p-1.5 text-white transition-all hover:bg-black sm:p-2 md:p-3"
                     aria-label="Next image"
                 >
                     <svg
@@ -152,7 +153,7 @@ const Dots = ({ setImgIndex }) => {
                         viewBox="0 0 24 24"
                         strokeWidth={2}
                         stroke="currentColor"
-                        className="h-6 w-6"
+                        className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8"
                     >
                         <path
                             strokeLinecap="round"
@@ -166,11 +167,47 @@ const Dots = ({ setImgIndex }) => {
     );
 };
 
-const GradientEdges = () => {
+const ResponsiveComponent = () => {
     return (
-        <>
-            <div className="pointer-events-none absolute bottom-0 left-0 top-0 w-[10vw] max-w-[100px]" />
-            <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-[10vw] max-w-[100px]" />
-        </>
+        <div className="absolute inset-0 z-30 flex items-end justify-center">
+            <div className="flex w-fit max-w-xl items-center justify-evenly gap-1 rounded-lg bg-slate-600 p-2 sm:flex-col md:flex-row md:gap-2 md:p-4 lg:gap-3">
+                <div className="flex items-center sm:mb-0">
+                    <div className="w-fit rounded-full bg-white p-1 md:p-3">
+                        <div className="text-xs text-indigo-500 sm:text-sm md:text-2xl">
+                            <FaUserDoctor />
+                        </div>
+                    </div>
+                    <div className="ml-2 flex flex-col sm:ml-3 md:ml-4">
+                        <p className="text-xs font-bold text-white sm:text-sm md:text-lg">
+                            Dokter
+                        </p>
+                    </div>
+                </div>
+                <div className="flex items-center sm:mb-0">
+                    <div className="w-fit rounded-full bg-white p-1 md:p-3">
+                        <div className="text-xs text-indigo-500 sm:text-sm md:text-2xl">
+                            <BsFileEarmarkMedicalFill />
+                        </div>
+                    </div>
+                    <div className="ml-2 flex flex-col sm:ml-3 md:ml-4">
+                        <p className="text-xs font-bold text-white sm:text-sm md:text-lg">
+                            Pendaftaran & Antrian
+                        </p>
+                    </div>
+                </div>
+                <div className="flex items-center">
+                    <div className="w-fit rounded-full bg-white p-1 md:p-3">
+                        <div className="text-xs text-indigo-500 sm:text-sm md:text-2xl">
+                            <FaPhone />
+                        </div>
+                    </div>
+                    <div className="ml-2 flex flex-col sm:ml-3 md:ml-4">
+                        <p className="text-xs font-bold text-white sm:text-sm md:text-lg">
+                            Kontak
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 };

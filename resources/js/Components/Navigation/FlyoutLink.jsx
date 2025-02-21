@@ -27,6 +27,7 @@ const FlyoutLink = ({
         <div
             onMouseEnter={() => !isMobile && setLocalOpen(true)}
             onMouseLeave={() => !isMobile && setLocalOpen(false)}
+            onClick={() => isMobile && setLocalOpen((prev) => !prev)}
             className={`relative ${isMobile ? 'w-full' : 'h-fit w-fit'}`}
         >
             <button

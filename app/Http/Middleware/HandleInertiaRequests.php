@@ -29,16 +29,13 @@ class HandleInertiaRequests extends Middleware
      * @return array<string, mixed>
      */
     public function share(Request $request): array
-    {
-        return [
-            ...parent::share($request),
-            'auth' => [
-                'user' => $request->user(),
-            ],
-            'ziggy' => fn () => [
-                ...(new Ziggy)->toArray(),
+{
+    return array_merge(parent::share($request), [
+        'ziggy' => function () use ($request) {
+            return array_merge((new Ziggy)->toArray(), [
                 'location' => $request->url(),
-            ],
-        ];
-    }
+            ]);
+        },
+    ]);
+}
 }

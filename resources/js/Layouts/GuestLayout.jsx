@@ -8,29 +8,31 @@ export default function GuestLayout({ children }) {
     return (
         <div className="min-h-screen bg-gray-100">
             <nav className="fixed left-0 right-0 top-0 z-50 border-b border-gray-100 bg-white">
-                <div className="flex h-10 justify-center gap-2 bg-[#07b8b2] p-1 text-white sm:justify-end sm:gap-3">
-                    <div className="flex h-8 items-center sm:mr-4">
-                        <MdOutlinePhone className="h-5 w-5" />
-                        <span className="ml-2 text-sm sm:text-base">
-                            (123) 456-7890
-                        </span>
-                    </div>
-                    <div className="flex h-8 items-center sm:mr-4">
-                        <LuClock7 className="h-5 w-5" />
-                        <span className="ml-2 text-sm sm:text-base">
-                            Buka 24 Jam
-                        </span>
-                    </div>
-                    <div className="flex h-8 items-center sm:mr-4">
-                        <MdOutlineMailOutline className="h-5 w-5" />
-                        <span className="ml-2 text-sm sm:text-base">
-                            <a
-                                href="mailto: rspku
+                <div className="bg-[#07b8b2]">
+                    <div className="mx-auto flex h-10 w-full max-w-7xl gap-1 p-1 text-white sm:justify-end sm:gap-3 sm:px-6">
+                        <div className="flex h-8 items-center sm:mr-4">
+                            <MdOutlinePhone className="h-5 w-5" />
+                            <span className="ml-2 text-sm sm:text-base">
+                                (123) 456-7890
+                            </span>
+                        </div>
+                        <div className="flex h-8 items-center sm:mr-4">
+                            <LuClock7 className="h-5 w-5" />
+                            <span className="ml-2 text-sm sm:text-base">
+                                Buka 24 Jam
+                            </span>
+                        </div>
+                        <div className="flex h-8 items-center">
+                            <MdOutlineMailOutline className="h-5 w-5" />
+                            <span className="ml-2 text-sm sm:text-base">
+                                <a
+                                    href="mailto: rspku
                                 "
-                            >
-                                rspkumuhboja@mailto
-                            </a>
-                        </span>
+                                >
+                                    rspkumuhboja@mailto
+                                </a>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
