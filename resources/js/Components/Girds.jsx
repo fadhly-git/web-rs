@@ -1,3 +1,4 @@
+import { Link } from '@inertiajs/react';
 import { motion } from 'framer-motion';
 import { FaUserDoctor } from 'react-icons/fa6';
 import { GiAmbulance } from 'react-icons/gi';
@@ -77,9 +78,9 @@ const SocialsBlock = () => (
             className="col-span-6 bg-[#07b8b2] text-sm md:col-span-3 md:text-base lg:text-3xl"
         >
             <div className="flex h-full flex-col items-center justify-center">
-                <a href="#" className="grid place-content-center text-white">
+                <Link href="#" className="grid place-content-center text-white">
                     <FaUserDoctor />
-                </a>
+                </Link>
                 <span className="font-bold">Dokter</span>
             </div>
         </Block>
@@ -91,12 +92,12 @@ const SocialsBlock = () => (
             className="col-span-6 bg-[#07b8b2] md:col-span-3"
         >
             <div className="flex h-full flex-col items-center justify-center text-base md:text-xl lg:text-3xl">
-                <a
+                <Link
                     href="#"
                     className="text-md grid place-content-center text-white md:text-xl lg:text-3xl"
                 >
                     <PiStethoscopeBold />
-                </a>
+                </Link>
                 <span className="text-sm font-bold md:text-base lg:text-base">
                     Buka 24 Jam
                 </span>
@@ -110,9 +111,9 @@ const SocialsBlock = () => (
             className="col-span-6 bg-[#07b8b2] md:col-span-3"
         >
             <div className="flex h-full flex-col items-center justify-center text-base md:text-xl lg:text-3xl">
-                <a href="#" className="grid place-content-center text-white">
+                <Link href="#" className="grid place-content-center text-white">
                     <GiAmbulance />
-                </a>
+                </Link>
                 <p className="text-sm font-bold md:text-base lg:text-base">
                     IGD
                 </p>

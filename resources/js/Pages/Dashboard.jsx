@@ -1,40 +1,108 @@
+import { Bento } from '@/Components/Bento';
+import { BentoImg } from '@/Components/Home/BentoImg';
 import { SwipeCarousel } from '@/Components/Home/Carousel';
-import GuestLayout from '@/Layouts/GuestLayout';
+import { DirSpeech } from '@/Components/Home/DirSpeech';
+import { ImgBlock } from '@/Components/Home/ImgPdftrn';
+import { News } from '@/Components/Home/News';
+import HomeLayout from '@/Layouts/HomeLayout';
 import { Head } from '@inertiajs/react';
-import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
+const sectionVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+};
 
 export default function Dashboard() {
-    const [currentTime, setCurrentTime] = useState(
-        new Date().toLocaleTimeString(),
-    );
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentTime(new Date().toLocaleTimeString());
-        }, 1000);
-
-        return () => clearInterval(timer);
-    }, []);
+    const { ref: sectionRef1, inView: sectionInView1 } = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+    const { ref: sectionRef2, inView: sectionInView2 } = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+    const { ref: sectionRef3, inView: sectionInView3 } = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+    const { ref: sectionRef4, inView: sectionInView4 } = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+    const { ref: sectionRef5, inView: sectionInView5 } = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+    const { ref: sectionRef6, inView: sectionInView6 } = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
     return (
         <>
             <Head title="Beranda" />
-            <GuestLayout>
-                <div className="mt-32">
+            <HomeLayout>
+                <motion.div
+                    ref={sectionRef1}
+                    initial="hidden"
+                    animate={sectionInView1 ? 'visible' : 'hidden'}
+                    variants={sectionVariants}
+                    transition={{ duration: 0.5 }}
+                    className="mt-32"
+                >
                     <SwipeCarousel />
-                </div>
-                <div className="w-full bg-white">
-                    <div className="mx-auto max-w-7xl pr-6 sm:px-6 lg:px-8">
-                        <div className="w-scren overflow-hidden">
-                            <div className="pt-6 text-gray-900">
-                                You're logged in!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </GuestLayout>
-            <footer className="py-16 text-center text-sm text-black dark:text-black">
-                Jam : {currentTime}
-            </footer>
+                </motion.div>
+                <motion.div
+                    className="w-full"
+                    ref={sectionRef2}
+                    initial="hidden"
+                    animate={sectionInView2 ? 'visible' : 'hidden'}
+                    variants={sectionVariants}
+                    transition={{ duration: 0.5 }}
+                >
+                    <Bento />
+                </motion.div>
+                <motion.div
+                    ref={sectionRef3}
+                    initial="hidden"
+                    animate={sectionInView3 ? 'visible' : 'hidden'}
+                    variants={sectionVariants}
+                    transition={{ duration: 0.5 }}
+                >
+                    <DirSpeech />
+                </motion.div>
+                <motion.div
+                    className="w-full"
+                    ref={sectionRef4}
+                    initial="hidden"
+                    animate={sectionInView4 ? 'visible' : 'hidden'}
+                    variants={sectionVariants}
+                    transition={{ duration: 0.5 }}
+                >
+                    <BentoImg />
+                </motion.div>
+                <motion.div
+                    className="w-full"
+                    ref={sectionRef5}
+                    initial="hidden"
+                    animate={sectionInView5 ? 'visible' : 'hidden'}
+                    variants={sectionVariants}
+                    transition={{ duration: 0.5 }}
+                >
+                    <ImgBlock />
+                </motion.div>
+                <motion.div
+                    ref={sectionRef6}
+                    initial="hidden"
+                    animate={sectionInView6 ? 'visible' : 'hidden'}
+                    variants={sectionVariants}
+                    transition={{ duration: 0.5 }}
+                    className="w-full"
+                >
+                    <News />
+                </motion.div>
+            </HomeLayout>
         </>
     );
 }

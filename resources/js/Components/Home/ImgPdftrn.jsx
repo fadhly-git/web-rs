@@ -21,7 +21,7 @@ export const ImgBlock = () => {
                         backgroundImage: 'url("/imgs/nature/1.jpg")',
                     }}
                 >
-                    <div className="flex h-full flex-col items-center justify-center">
+                    <div className="flex h-full flex-col items-center justify-center rounded-lg bg-black/30">
                         <h1 className="text-center text-lg font-bold md:text-3xl">
                             Temukan Perawatan Terbaik untuk Kesehatan Anda
                         </h1>
@@ -34,7 +34,7 @@ export const ImgBlock = () => {
                                 yang disesuaikan dengan kebutuhan Anda.
                             </p>
                         </div>
-                        <button className="transfrom mt-5 w-fit rounded-lg bg-indigo-500 px-4 py-2 text-xs text-white transition-all duration-300 hover:scale-110 hover:bg-indigo-600 hover:font-extrabold md:mt-12 md:text-xl">
+                        <button className="transfrom mt-5 w-fit rounded-lg bg-[#07b8b2] px-4 py-2 text-xs text-white transition-all duration-300 hover:scale-110 hover:bg-cyan-600 hover:font-extrabold md:mt-12 md:text-xl">
                             Buat Janji Temu
                         </button>
                     </div>

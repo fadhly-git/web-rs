@@ -1,3 +1,4 @@
+import { Link } from '@inertiajs/react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
@@ -11,7 +12,7 @@ export const Cards = () => {
                 'https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg',
             authorName: 'Sidi dev',
             date: 'Jan 4 2022',
-            href: 'javascript:void(0)',
+            href: '',
         },
         {
             title: 'A Quick Guide to WordPress Hosting',
@@ -21,7 +22,7 @@ export const Cards = () => {
                 'https://api.uifaces.co/our-content/donated/FJkauyEa.jpg',
             authorName: 'Micheal',
             date: 'Jan 4 2022',
-            href: 'javascript:void(0)',
+            href: '',
         },
         {
             title: '7 Promising VS Code Extensions Introduced in 2022',
@@ -30,7 +31,7 @@ export const Cards = () => {
             authorLogo: 'https://randomuser.me/api/portraits/men/46.jpg',
             authorName: 'Luis',
             date: 'Jan 4 2022',
-            href: 'javascript:void(0)',
+            href: '',
         },
         {
             title: 'How to Use Root C++ Interpreter Shell to Write C++ Programs',
@@ -40,7 +41,7 @@ export const Cards = () => {
                 'https://api.uifaces.co/our-content/donated/KtCFjlD4.jpg',
             authorName: 'Lourin',
             date: 'Jan 4 2022',
-            href: 'javascript:void(0)',
+            href: '',
         },
         {
             title: 'Another Post Title',
@@ -49,7 +50,7 @@ export const Cards = () => {
             authorLogo: 'https://randomuser.me/api/portraits/women/50.jpg',
             authorName: 'Alice',
             date: 'Jan 5 2022',
-            href: 'javascript:void(0)',
+            href: '',
         },
         {
             title: 'Yet Another Post',
@@ -58,7 +59,7 @@ export const Cards = () => {
             authorLogo: 'https://randomuser.me/api/portraits/men/51.jpg',
             authorName: 'John',
             date: 'Jan 6 2022',
-            href: 'javascript:void(0)',
+            href: '',
         },
     ];
 
@@ -104,7 +105,7 @@ export const Cards = () => {
                         key={index}
                     >
                         <div className="mx-auto mt-4 max-w-md rounded-md border shadow-lg duration-300 hover:shadow-sm">
-                            <a href={item.href}>
+                            <Link href={item.href}>
                                 <img
                                     src={item.img}
                                     loading="lazy"
@@ -136,7 +137,7 @@ export const Cards = () => {
                                         {item.desc}
                                     </p>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                     </article>
                 ))}

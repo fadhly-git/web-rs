@@ -57,7 +57,7 @@ export const SwipeCarousel = () => {
     };
 
     return (
-        <div className="relative mx-auto overflow-hidden pb-2">
+        <div className="relative w-screen overflow-hidden pb-2">
             <motion.div
                 drag="x"
                 dragConstraints={{
@@ -68,7 +68,7 @@ export const SwipeCarousel = () => {
                     x: dragX,
                 }}
                 animate={{
-                    translateX: `-${imgIndex * (window.innerWidth > 768 ? 101 : 100)}%`,
+                    translateX: `-${imgIndex * (window.innerWidth > 768 ? 100 : 100)}%`,
                 }}
                 transition={SPRING_OPTIONS}
                 onDragEnd={onDragEnd}
@@ -77,7 +77,6 @@ export const SwipeCarousel = () => {
                 <Images imgIndex={imgIndex} />
             </motion.div>
             <ResponsiveComponent />
-            <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} />
         </div>
     );
 };
@@ -107,106 +106,106 @@ const Images = ({ imgIndex }) => {
     );
 };
 
-const Dots = ({ setImgIndex }) => {
-    const handlePrevious = () => {
-        setImgIndex((prev) => (prev > 0 ? prev - 1 : imgs.length - 1));
-    };
+// const Dots = ({ setImgIndex }) => {
+//     const handlePrevious = () => {
+//         setImgIndex((prev) => (prev > 0 ? prev - 1 : imgs.length - 1));
+//     };
 
-    const handleNext = () => {
-        setImgIndex((prev) => (prev < imgs.length - 1 ? prev + 1 : 0));
-    };
+//     const handleNext = () => {
+//         setImgIndex((prev) => (prev < imgs.length - 1 ? prev + 1 : 0));
+//     };
 
-    return (
-        <div className="container items-center">
-            <div className="absolute inset-0 z-40 flex items-center justify-between p-1 sm:p-4">
-                {/* Previous Button */}
-                <button
-                    onClick={handlePrevious}
-                    className="rounded-full bg-black/20 p-1.5 text-white transition-all hover:bg-black sm:p-2 md:p-3"
-                    aria-label="Previous image"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                        className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M15.75 19.5L8.25 12l7.5-7.5"
-                        />
-                    </svg>
-                </button>
+//     return (
+//         <div className="container pointer-events-auto z-40 items-center">
+//             <div className="absolute inset-0 z-30 flex items-center justify-between p-1 sm:p-4">
+//                 {/* Previous Button */}
+//                 <button
+//                     onClick={handlePrevious}
+//                     className="rounded-full bg-black/20 p-1.5 text-white transition-all hover:bg-black sm:p-2 md:p-3"
+//                     aria-label="Previous image"
+//                 >
+//                     <svg
+//                         xmlns="http://www.w3.org/2000/svg"
+//                         fill="none"
+//                         viewBox="0 0 24 24"
+//                         strokeWidth={2}
+//                         stroke="currentColor"
+//                         className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8"
+//                     >
+//                         <path
+//                             strokeLinecap="round"
+//                             strokeLinejoin="round"
+//                             d="M15.75 19.5L8.25 12l7.5-7.5"
+//                         />
+//                     </svg>
+//                 </button>
 
-                {/* Next Button */}
-                <button
-                    onClick={handleNext}
-                    className="rounded-full bg-black/20 p-1.5 text-white transition-all hover:bg-black sm:p-2 md:p-3"
-                    aria-label="Next image"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                        className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                        />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    );
-};
+//                 {/* Next Button */}
+//                 <button
+//                     onClick={handleNext}
+//                     className="rounded-full bg-black/20 p-1.5 text-white transition-all hover:bg-black sm:p-2 md:p-3"
+//                     aria-label="Next image"
+//                 >
+//                     <svg
+//                         xmlns="http://www.w3.org/2000/svg"
+//                         fill="none"
+//                         viewBox="0 0 24 24"
+//                         strokeWidth={2}
+//                         stroke="currentColor"
+//                         className="h-4 w-4 sm:h-6 sm:w-6 md:h-8 md:w-8"
+//                     >
+//                         <path
+//                             strokeLinecap="round"
+//                             strokeLinejoin="round"
+//                             d="M8.25 4.5l7.5 7.5-7.5 7.5"
+//                         />
+//                     </svg>
+//                 </button>
+//             </div>
+//         </div>
+//     );
+// };
 
 const ResponsiveComponent = () => {
     return (
-        <div className="absolute inset-0 z-30 flex items-end justify-center">
-            <div className="flex w-fit max-w-xl items-center justify-evenly gap-1 rounded-lg bg-slate-600 p-2 sm:flex-col md:flex-row md:gap-2 md:p-4 lg:gap-3">
-                <div className="flex items-center sm:mb-0">
+        <div className="pointer-events-auto absolute inset-0 z-40 flex items-end justify-center">
+            <div className="flex w-fit max-w-xl items-center justify-evenly gap-1 rounded-lg bg-[#07b8b2] p-2 sm:flex-col md:flex-row md:gap-2 md:p-4 lg:gap-4">
+                <div className="transfrom flex items-center rounded-sm text-cyan-500 transition-all hover:scale-110 hover:text-indigo-700 sm:mb-0">
                     <div className="w-fit rounded-full bg-white p-1 md:p-3">
-                        <div className="text-xs text-indigo-500 sm:text-sm md:text-2xl">
+                        <div className="text-xs sm:text-sm md:text-2xl">
                             <FaUserDoctor />
                         </div>
                     </div>
-                    <div className="ml-2 flex flex-col sm:ml-3 md:ml-4">
+                    <div className="ml-1 flex flex-col sm:ml-1 md:ml-2">
                         <p className="text-xs font-bold text-white sm:text-sm md:text-lg">
                             Dokter
                         </p>
                     </div>
                 </div>
-                <div className="flex items-center sm:mb-0">
+                <button className="transfrom flex items-center rounded-sm text-cyan-500 transition-all hover:scale-110 hover:text-indigo-700 sm:mb-0">
                     <div className="w-fit rounded-full bg-white p-1 md:p-3">
-                        <div className="text-xs text-indigo-500 sm:text-sm md:text-2xl">
+                        <div className="text-xs sm:text-sm md:text-2xl">
                             <BsFileEarmarkMedicalFill />
                         </div>
                     </div>
-                    <div className="ml-2 flex flex-col sm:ml-3 md:ml-4">
+                    <div className="ml-1 flex flex-col sm:ml-1 md:ml-2">
                         <p className="text-xs font-bold text-white sm:text-sm md:text-lg">
                             Pendaftaran & Antrian
                         </p>
                     </div>
-                </div>
-                <div className="flex items-center">
+                </button>
+                <button className="transfrom flex items-center rounded-sm text-cyan-500 transition-all hover:scale-110 hover:text-indigo-700 sm:mb-0">
                     <div className="w-fit rounded-full bg-white p-1 md:p-3">
-                        <div className="text-xs text-indigo-500 sm:text-sm md:text-2xl">
+                        <div className="text-xs sm:text-sm md:text-2xl">
                             <FaPhone />
                         </div>
                     </div>
-                    <div className="ml-2 flex flex-col sm:ml-3 md:ml-4">
+                    <div className="ml-1 flex flex-col sm:ml-1 md:ml-2">
                         <p className="text-xs font-bold text-white sm:text-sm md:text-lg">
                             Kontak
                         </p>
                     </div>
-                </div>
+                </button>
             </div>
         </div>
     );

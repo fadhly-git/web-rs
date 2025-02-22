@@ -1,4 +1,4 @@
-import NavLink from '@/Components/NavLink';
+import NavLink from '@/Components/Junk/NavLink';
 
 const DropdownContent = ({ items, isMobile }) => {
     return (

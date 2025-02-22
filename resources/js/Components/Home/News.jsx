@@ -10,7 +10,7 @@ const posts = [
         authorLogo: 'https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg',
         authorName: 'Sidi dev',
         date: 'Jan 4 2022',
-        href: 'javascript:void(0)',
+        href: '',
     },
     {
         title: 'A Quick Guide to WordPress Hosting',
@@ -19,7 +19,7 @@ const posts = [
         authorLogo: 'https://api.uifaces.co/our-content/donated/FJkauyEa.jpg',
         authorName: 'Micheal',
         date: 'Jan 4 2023',
-        href: 'javascript:void(0)',
+        href: '',
     },
     {
         title: '7 Promising VS Code Extensions Introduced in 2022',
@@ -28,7 +28,7 @@ const posts = [
         authorLogo: 'https://randomuser.me/api/portraits/men/46.jpg',
         authorName: 'Luis',
         date: 'Jan 4 2022',
-        href: 'javascript:void(0)',
+        href: '',
     },
     {
         title: 'How to Use Root C++ Interpreter Shell to Write C++ Programs',
@@ -37,7 +37,7 @@ const posts = [
         authorLogo: 'https://api.uifaces.co/our-content/donated/KtCFjlD4.jpg',
         authorName: 'Lourin',
         date: 'Jan 4 2024',
-        href: 'javascript:void(0)',
+        href: '',
     },
 ];
 
@@ -61,7 +61,7 @@ export const News = () => {
                         </p>
                         <a
                             href="#"
-                            className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-4 py-2 text-white transition-all duration-300 hover:scale-105 hover:bg-indigo-600"
+                            className="inline-flex items-center gap-2 rounded-lg bg-[#07b8b2] px-4 py-2 text-white transition-all duration-300 hover:scale-105 hover:bg-cyan-600"
                         >
                             Lihat Semua Berita <FiArrowRight />
                         </a>
@@ -86,17 +86,17 @@ export const News = () => {
                                     }}
                                 >
                                     <div className="flex h-full items-end justify-center">
-                                        <span className="flex w-fit items-center gap-1 rounded-lg bg-indigo-600 px-2 py-1 text-slate-100">
+                                        <span className="flex w-fit items-center gap-1 rounded-lg bg-[#07b8b2] px-2 py-1 text-slate-100">
                                             <IoCalendarOutline />
                                             {items.date}
                                         </span>
                                     </div>
                                 </div>
                                 <div className="mb-3 ml-4 mr-2 pt-3">
-                                    <h3 className="text-xl text-gray-900">
+                                    <h3 className="text-2xl font-semibold text-gray-900">
                                         {items.title}
                                     </h3>
-                                    <p className="mt-1 text-sm text-gray-400">
+                                    <p className="mt-1 text-sm md:text-base">
                                         {items.desc}
                                     </p>
                                 </div>

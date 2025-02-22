@@ -1,5 +1,4 @@
 import ApplicationLogo from '@/Components/ApplicationLogo';
-import { Breadcrumbs } from '@/Components/Breadcrumbs';
 import { Footer } from '@/Components/Footer';
 import Navbar from '@/Components/Navigation/Navbar';
 import { Link } from '@inertiajs/react';
@@ -13,7 +12,7 @@ import {
 export default function GuestLayout({ children }) {
     return (
         <>
-            <div className="flex w-full flex-col items-center justify-between">
+            <div className="flex w-full flex-col items-center justify-between bg-white">
                 <nav className="fixed left-0 right-0 top-0 z-50 border-b border-gray-100 bg-white">
                     <div className="bg-[#07b8b2]">
                         <div className="mx-auto flex h-10 w-full max-w-6xl justify-center gap-2 p-1 text-[10px] text-white sm:justify-between sm:gap-3 sm:text-base">
@@ -65,13 +64,8 @@ export default function GuestLayout({ children }) {
                         </div>
                     </div>
                 </nav>
-                <Breadcrumbs />
+                {children}
             </div>
-            <main className="mx-auto mt-4 min-h-[35vw] w-full max-w-6xl">
-                <div className="h-full min-h-full w-full max-w-6xl">
-                    {children}
-                </div>
-            </main>
             <div className="flex w-full bg-zinc-800">
                 <Footer />
             </div>

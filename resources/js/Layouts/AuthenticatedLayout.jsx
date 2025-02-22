@@ -1,6 +1,6 @@
 import ApplicationLogo from '@/Components/ApplicationLogo';
-import NavLink from '@/Components/NavLink';
-import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
+import NavLink from '@/Components/Junk/NavLink';
+import ResponsiveNavLink from '@/Components/Junk/ResponsiveNavLink';
 import { Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 import '../../css/Layout/AuthenticatedLayout.css'; // Perbarui jalur impor

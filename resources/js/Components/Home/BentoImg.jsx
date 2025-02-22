@@ -42,17 +42,14 @@ export const Block = ({ className, ...rest }) => {
                 stiffness: 400,
                 damping: 50,
             }}
-            className={twMerge(
-                'col-span-4 rounded-lg border border-slate-300 bg-slate-200 p-6',
-                className,
-            )}
+            className={twMerge('col-span-4 rounded-lg p-6', className)}
             {...rest}
         />
     );
 };
 
 const TextBlock = () => (
-    <Block className="col-span-12 row-span-2 md:col-span-7">
+    <Block className="col-span-12 row-span-2 border border-slate-300 bg-slate-200 md:col-span-7">
         <span className="text-md text-zinc-700">Layanan medis</span>
         <h1 className="mb-6 text-xl font-medium leading-tight text-zinc-700">
             Profesionalitas dan religiusitas dalampelayanan kesehatan
@@ -63,7 +60,7 @@ const TextBlock = () => (
             kami selalu siap menjaga kesehatan anda. Dengan posisi rumah sakit
             yang strategis, maka kecepatan akses semakin terjangkau.
         </p>
-        <button className="transfrom w-fit rounded-lg bg-indigo-500 px-4 py-2 text-white transition-all duration-300 hover:scale-110 hover:bg-indigo-600">
+        <button className="transfrom w-fit rounded-lg bg-[#07b8b2] px-4 py-2 text-white transition-all duration-300 hover:scale-110 hover:bg-cyan-600">
             Baca Selengkapnya
         </button>
     </Block>

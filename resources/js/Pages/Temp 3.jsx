@@ -1,8 +1,8 @@
-// Temp page
+// Temp 3 page
 import GuestLayout from '@/Layouts/GuestLayout';
 import { Head } from '@inertiajs/react';
  
-export default function Temp() {
+export default function Temp 3() {
     return (
  <> 
         <Head title="Informasi Umum" />

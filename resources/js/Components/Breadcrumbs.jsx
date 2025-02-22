@@ -4,7 +4,7 @@ import {
     newsItems,
     serviceItems,
     temp,
-} from '@/Components/Navigation/MenuItems';
+} from '@/MenuItems';
 import { Link, usePage } from '@inertiajs/react';
 import { HiChevronRight, HiHome } from 'react-icons/hi';
 
@@ -31,8 +31,11 @@ export const Breadcrumbs = () => {
 
         const currentRoute = component;
         const menuItem = allMenuItems.find(
-            (item) => item.routeName === currentRoute,
+            (item) =>
+                item.route === currentRoute || item.routeName === currentRoute,
         );
+        console.log('menuItem', currentRoute);
+        console.table(allMenuItems);
 
         if (!menuItem) return [];
 
@@ -55,29 +58,31 @@ export const Breadcrumbs = () => {
     const breadcrumbItems = getBreadcrumbItems();
 
     return (
-        <nav className="flex items-center space-x-2 text-sm text-gray-500">
-            <Link
-                href="/"
-                className="flex items-center transition-colors hover:text-indigo-600"
-            >
-                <HiHome className="h-4 w-4" />
-            </Link>
+        <div className="flex w-full justify-center bg-slate-100 px-4 py-3 pt-32 text-sm text-gray-500">
+            <div className="flex h-full w-full max-w-6xl items-center">
+                <Link
+                    href="/"
+                    className="flex items-center transition-colors hover:text-indigo-600"
+                >
+                    <HiHome className="h-4 w-4" />
+                </Link>
 
-            {breadcrumbItems.map((item, index) => (
-                <div key={index} className="flex items-center">
-                    <HiChevronRight className="mx-1 h-4 w-4" />
-                    <Link
-                        href={item.url}
-                        className={`transition-colors hover:text-indigo-600 ${
-                            index === breadcrumbItems.length - 1
-                                ? 'font-medium text-indigo-600'
-                                : ''
-                        }`}
-                    >
-                        {item.text}
-                    </Link>
-                </div>
-            ))}
-        </nav>
+                {breadcrumbItems.map((item, index) => (
+                    <div key={index} className="flex items-center">
+                        <HiChevronRight className="mx-1 h-4 w-4" />
+                        <Link
+                            href={item.url}
+                            className={`transition-colors hover:text-indigo-600 ${
+                                index === breadcrumbItems.length - 1
+                                    ? 'font-medium text-indigo-600'
+                                    : ''
+                            }`}
+                        >
+                            {item.text}
+                        </Link>
+                    </div>
+                ))}
+            </div>
+        </div>
     );
 };

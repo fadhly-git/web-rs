@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { BsFileEarmarkMedicalFill } from 'react-icons/bs';
-import { FiArrowRight } from 'react-icons/fi';
 import { LuRibbon } from 'react-icons/lu';
 import { twMerge } from 'tailwind-merge';
 
@@ -63,12 +62,6 @@ const HeaderBlock = () => (
             kami selalu siap menjaga kesehatan anda. Dengan posisi rumah sakit
             yang strategis, maka kecepatan akses semakin terjangkau.
         </p>
-        <a
-            href="#"
-            className="flex items-center gap-1 text-red-500 hover:underline"
-        >
-            Contact us <FiArrowRight />
-        </a>
     </Block>
 );
 
@@ -81,7 +74,7 @@ const SocialsBlock = () => (
             className="col-span-12 md:col-span-4"
         >
             <div className="flex flex-col items-center gap-2 md:flex-row md:justify-between">
-                <span className="grid h-full place-content-center rounded-full bg-white p-2 text-3xl text-indigo-500 md:mb-0">
+                <span className="grid h-full place-content-center rounded-full bg-white p-2 text-3xl text-[#07b8b2] md:mb-0">
                     <LuRibbon />
                 </span>
                 <div className="text-left md:text-left">
@@ -102,7 +95,7 @@ const SocialsBlock = () => (
             className="col-span-12 md:col-span-4"
         >
             <div className="flex flex-col items-center gap-2 md:flex-row md:justify-between">
-                <span className="grid h-full place-content-center rounded-full bg-white p-2 text-3xl text-indigo-500 md:mb-0">
+                <span className="grid h-full place-content-center rounded-full bg-white p-2 text-3xl text-[#07b8b2] md:mb-0">
                     <BsFileEarmarkMedicalFill />
                 </span>
                 <div className="text-left md:text-left">
@@ -123,7 +116,7 @@ const SocialsBlock = () => (
             className="col-span-12 md:col-span-4"
         >
             <div className="flex flex-col items-center gap-2 md:flex-row md:justify-between">
-                <span className="grid h-full place-content-center rounded-full bg-white p-2 text-3xl text-indigo-500 md:mb-0">
+                <span className="grid h-full place-content-center rounded-full bg-white p-2 text-3xl text-[#07b8b2] md:mb-0">
                     <LuRibbon />
                 </span>
                 <div className="text-left md:text-left">
@@ -144,7 +137,7 @@ const SocialsBlock = () => (
             className="col-span-12 md:col-span-4"
         >
             <div className="flex flex-col items-center gap-2 md:flex-row md:justify-between">
-                <span className="grid h-full place-content-center rounded-full bg-white p-2 text-3xl text-indigo-500 md:mb-0">
+                <span className="grid h-full place-content-center rounded-full bg-white p-2 text-3xl text-[#07b8b2] md:mb-0">
                     <BsFileEarmarkMedicalFill />
                 </span>
                 <div className="text-left md:text-left">

@@ -1,4 +1,4 @@
-import { Footer } from '../Home/Footer';
+import { Footer } from '../Footer';
 
 export const Bento = () => {
     return <Footer />;

@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import DropdownContent from './DropdownContent';
-import FlyoutLink from './FlyoutLink';
-import HamburgerButton from './HamburgerButton';
 import {
     aboutUsItems,
     contactItems,
     MENU_IDS,
     newsItems,
     serviceItems,
-} from './MenuItems';
+} from '../../MenuItems';
+import DropdownContent from './DropdownContent';
+import FlyoutLink from './FlyoutLink';
+import HamburgerButton from './HamburgerButton';
 import MobileMenu from './MobileMenu';
 import SimpleLink from './SimpleLink';
 
