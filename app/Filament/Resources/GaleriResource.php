@@ -17,7 +17,7 @@ class GaleriResource extends Resource
 {
     protected static ?string $model = Galeri::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-photo';
 
     public static function form(Form $form): Form
     {
@@ -40,9 +40,22 @@ class GaleriResource extends Resource
                 Forms\Components\TextInput::make('jenis_galeri')
                     ->maxLength(20)
                     ->required(),
-                Forms\Components\Textarea::make('isi')
-                    ->nullable(),
-                Forms\Components\TextInput::make('gambar')
+                Forms\Components\RichEditor::make('isi')->toolbarButtons([
+                    'blockquote',
+                    'bold',
+                    'bulletList',
+                    'codeBlock',
+                    'h2',
+                    'h3',
+                    'italic',
+                    'link',
+                    'orderedList',
+                    'redo',
+                    'strike',
+                    'underline',
+                    'undo',
+                ])->nullable()->columnSpanFull(),
+                Forms\Components\FileUpload::make('gambar')
                     ->required(),
                 Forms\Components\TextInput::make('website')
                     ->nullable(),

@@ -17,7 +17,7 @@ class KonfigurasiResource extends Resource
 {
     protected static ?string $model = Konfigurasi::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-wrench-screwdriver';
 
     public static function form(Form $form): Form
     {
@@ -32,8 +32,36 @@ class KonfigurasiResource extends Resource
                 Forms\Components\TextInput::make('nama_singkat'),
                 Forms\Components\TextInput::make('tagline'),
                 Forms\Components\TextInput::make('tagline2'),
-                Forms\Components\Textarea::make('tentang'),
-                Forms\Components\Textarea::make('deksripsi'),
+                Forms\Components\RichEditor::make('tentang')->columnSpanFull()->toolbarButtons([
+                    'blockquote',
+                    'bold',
+                    'bulletList',
+                    'codeBlock',
+                    'h2',
+                    'h3',
+                    'italic',
+                    'link',
+                    'orderedList',
+                    'redo',
+                    'strike',
+                    'underline',
+                    'undo',
+                ]),
+                Forms\Components\RichEditor::make('deksripsi')->columnSpanFull()->toolbarButtons([
+                    'blockquote',
+                    'bold',
+                    'bulletList',
+                    'codeBlock',
+                    'h2',
+                    'h3',
+                    'italic',
+                    'link',
+                    'orderedList',
+                    'redo',
+                    'strike',
+                    'underline',
+                    'undo',
+                ]),
                 Forms\Components\TextInput::make('website'),
                 Forms\Components\TextInput::make('email'),
                 Forms\Components\TextInput::make('email_cadangan'),
@@ -80,8 +108,8 @@ class KonfigurasiResource extends Resource
                 Forms\Components\TextInput::make('link_5'),
                 Forms\Components\TextInput::make('link_6'),
                 Forms\Components\Textarea::make('javawebmedia'),
-                Forms\Components\TextInput::make('gambar'),
-                Forms\Components\TextInput::make('video'),
+                Forms\Components\FileUpload::make('gambar'),
+                Forms\Components\FileUpload::make('video'),
                 Forms\Components\Textarea::make('rekening'),
                 Forms\Components\Textarea::make('prolog_topik'),
                 Forms\Components\Textarea::make('prolog_program'),

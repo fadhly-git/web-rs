@@ -17,7 +17,7 @@ class DownloadResource extends Resource
 {
     protected static ?string $model = Download::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-cloud-arrow-down';
 
     public static function form(Form $form): Form
     {
@@ -57,16 +57,15 @@ class DownloadResource extends Resource
                 Forms\Components\TextInput::make('jenis_download')
                     ->maxLength(20)
                     ->required(),
-                Forms\Components\TextInput::make('gambar')
+                Forms\Components\FileUpload::make('gambar')
                     ->required(),
                 Forms\Components\TextInput::make('website')
                     ->nullable(),
                 Forms\Components\TextInput::make('hits')
                     ->numeric()
                     ->required(),
-                Forms\Components\DateTimePicker::make('tanggal')
-                    ->label('Created At')
-                    ->hidden(),
+                Forms\Components\DatePicker::make('tanggal')
+                    ->label('Created At')->native(),
             ]);
     }
 
@@ -90,7 +89,7 @@ class DownloadResource extends Resource
                     ->searchable()
                     ->sortable()
                     ->label('Type'),
-                Tables\Columns\TextColumn::make('gambar')
+                Tables\Columns\ImageColumn::make('gambar')
                     ->label('Image'),
                 Tables\Columns\TextColumn::make('website')
                     ->label('Website'),

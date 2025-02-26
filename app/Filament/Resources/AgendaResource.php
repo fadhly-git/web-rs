@@ -18,7 +18,7 @@ class AgendaResource extends Resource
 {
     protected static ?string $model = Agenda::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-pencil-square';
 
     public static function form(Form $form): Form
     {
@@ -32,7 +32,10 @@ class AgendaResource extends Resource
                 ])->required(),
                 Forms\Components\TextInput::make('slug_agenda')->required(),
                 Forms\Components\TextInput::make('judul_agenda')->required(),
-                Forms\Components\FileUpload::make('gambar')->required(),
+                Forms\Components\Select::make('status_agenda')->options([
+                    'PUBLISH' => 'Publish',
+                    'DRAFT' => 'Draft',
+                ])->required(),
                 RichEditor::make('isi')->required()->columnSpanFull()->toolbarButtons([
                     'blockquote',
                     'bold',
@@ -48,14 +51,7 @@ class AgendaResource extends Resource
                     'underline',
                     'undo',
                 ]),
-                Forms\Components\Select::make('status_agenda')->options([
-                    'PUBLISH' => 'Publish',
-                    'DRAFT' => 'Draft',
-                ])->required(),
-                Forms\Components\Select::make('jenis_agenda')->options([
-                    'AGENDA' => 'Agenda',
-                    'KEGIATAN' => 'Kegiatan',
-                ])->required(),
+                Forms\Components\FileUpload::make('gambar')->required(),
                 RichEditor::make('keywords')->required()->toolbarButtons([
                     'blockquote',
                     'bold',
@@ -67,6 +63,10 @@ class AgendaResource extends Resource
                     'undo',
                 ]),
                 Forms\Components\FileUpload::make('icon')->required(),
+                Forms\Components\Select::make('jenis_agenda')->options([
+                    'AGENDA' => 'Agenda',
+                    'KEGIATAN' => 'Kegiatan',
+                ])->required(),
                 Forms\Components\TextInput::make('hits')->numeric(),
                 Forms\Components\TextInput::make('urutan')->numeric(),
                 Forms\Components\DatePicker::make('tanggal_mulai')->required(),
@@ -77,7 +77,7 @@ class AgendaResource extends Resource
                 Forms\Components\TextInput::make('google_map')->required(),
                 Forms\Components\DatePicker::make('tanggal_post')->required(),
                 Forms\Components\DatePicker::make('tanggal_publish')->required(),
-            ]);
+            ])->columns(3);
     }
 
     public static function table(Table $table): Table
