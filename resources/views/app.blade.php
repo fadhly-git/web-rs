@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title inertia>{{ config('app.name', 'RS PKU Boja') }}</title>
-        <link rel="icon" type="image/png" href="favicon.ico'">
+        <link rel="icon" type="image/png" href="public/favicon.ico">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

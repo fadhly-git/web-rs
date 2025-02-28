@@ -12,10 +12,13 @@ class Users extends Model
         'name',
         'email',
         'password',
-        'role',
-        'status',
+        'akses_level',
+        'gambar',
         'created_at',
         'updated_at',
     ];
-    
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
 }

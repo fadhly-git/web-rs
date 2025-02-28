@@ -13,10 +13,7 @@ class BeritaOverview extends BaseWidget
         $latestBerita = Berita::query()->latest()->first();
 
         return [
-            Stat::make('Total Berita', 'TotalBerita')
-                ->value(Berita::query()->count())
-                ->description('Jumlah semua data berita')
-                ->icon('heroicon-o-newspaper'),
+            //
         ];
     }
 }

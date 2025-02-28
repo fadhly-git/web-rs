@@ -34,8 +34,6 @@ export const Breadcrumbs = () => {
             (item) =>
                 item.route === currentRoute || item.routeName === currentRoute,
         );
-        console.log('menuItem', currentRoute);
-        console.table(allMenuItems);
 
         if (!menuItem) return [];
 

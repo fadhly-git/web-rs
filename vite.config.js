@@ -1,6 +1,11 @@
 import react from '@vitejs/plugin-react';
+import { config } from 'dotenv';
 import laravel from 'laravel-vite-plugin';
 import { defineConfig } from 'vite';
+
+config();
+
+const { VITE_HOST, VITE_PORT } = process.env;
 
 export default defineConfig({
     plugins: [
@@ -13,10 +18,10 @@ export default defineConfig({
     ],
     server: {
         cors: true, // Mengizinkan CORS
-        host: '100.66.48.65',
-        port: 5173,
+        host: 'localhost',
+        port: VITE_PORT || 3000,
         hmr: {
-            host: '100.66.48.65',
+            host: VITE_HOST || 'localhost',
         },
         strictPort: true,
     },

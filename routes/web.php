@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Home;
+use App\Http\Controllers\Temp;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -7,14 +9,10 @@ use App\Livewire\Counter;
  
 Route::get('/counter', Counter::class);
 
-Route::get('/', function () {
-    return Inertia::render('Dashboard');
-})->name('home');
+Route::get('/',[Home::class, 'index'])->name('home');
 // About Us Routes with Prefix
 
-Route::get('temp', function () {
-    return Inertia::render('Temp');
-})->name('temp');
+Route::get('temp', [Temp::class, 'index'])->name('temp');
 
 Route::prefix('about')->group(function (){
     Route::get('informasi-umum', function () {
