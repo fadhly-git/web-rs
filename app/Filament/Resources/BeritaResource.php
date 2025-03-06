@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\BeritaResource\Pages;
 use App\Filament\Resources\BeritaResource\RelationManagers;
+use FilamentTiptapEditor\TiptapEditor;
 use App\Models\Berita;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -34,7 +35,9 @@ class BeritaResource extends Resource
                 ])->required(),
                 Forms\Components\TextInput::make('updater')->required(),
                 Forms\Components\TextInput::make('slug_berita')->required(),
-                Forms\Components\TextInput::make('judul_berita')->required(),
+                Forms\Components\TextInput::make('judul_berita')
+                ->required()
+                ->helperText('parameter menu frontend buka di menu'),
                 Forms\Components\Select::make('status_berita')
                 ->options([
                     'PUBLISH' => 'Publish',
@@ -45,21 +48,8 @@ class BeritaResource extends Resource
                     'BERITA' => 'Berita',
                     'PENGUMUMAN' => 'Pengumuman',
                 ])->required(),
-                Forms\Components\RichEditor::make('isi')->required()->toolbarButtons([
-                    'blockquote',
-                    'bold',
-                    'bulletList',
-                    'codeBlock',
-                    'h2',
-                    'h3',
-                    'italic',
-                    'link',
-                    'orderedList',
-                    'redo',
-                    'strike',
-                    'underline',
-                    'undo',
-                ])->columnSpanFull(),
+                TiptapEditor::make('isi')
+                ->required()->columnSpanFull(),
                 Forms\Components\RichEditor::make('keywords')->required()->toolbarButtons([
                     'blockquote',
                     'bold',
@@ -70,8 +60,8 @@ class BeritaResource extends Resource
                     'redo',
                     'undo',
                 ]),
-                Forms\Components\FileUpload::make('gambar')->required()->image(),
-                Forms\Components\FileUpload::make('icon')->required(),
+                Forms\Components\FileUpload::make('gambar')->required(false)->image(),
+                Forms\Components\FileUpload::make('icon')->required(false),
                 Forms\Components\TextInput::make('hits')->numeric(),
                 Forms\Components\TextInput::make('urutan')->numeric(),
                 Forms\Components\DatePicker::make('tanggal_mulai')->required(),
@@ -106,6 +96,7 @@ class BeritaResource extends Resource
                     ->formatStateUsing(function ($state) {
                         return $state === 'PUBLISH' ? 'Publish' : 'Draft';
                     }),
+                
                 Tables\Columns\TextColumn::make('jenis_berita')
                     ->formatStateUsing(function ($state) {
                         return $state === 'BERITA' ? 'Berita' : 'Pengumuman';
@@ -123,6 +114,9 @@ class BeritaResource extends Resource
                     ->label('Hits'),
                 Tables\Columns\TextColumn::make('urutan')
                     ->label('Urutan'),
+                Tables\Columns\TextColumn::make('isi')
+                    ->searchable()
+                    ->label('Isi'),
                 Tables\Columns\TextColumn::make('tanggal_mulai')
                     ->label('Tanggal Mulai'),
                 Tables\Columns\TextColumn::make('tanggal_selesai')

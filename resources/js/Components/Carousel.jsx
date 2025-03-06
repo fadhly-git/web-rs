@@ -1,4 +1,4 @@
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import { motion, useMotionValue } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { BsFileEarmarkMedicalFill } from 'react-icons/bs';
@@ -48,7 +48,7 @@ export const SwipeCarousel = ({ images }) => {
     };
 
     return (
-        <div className="relative w-screen overflow-hidden pb-2">
+        <div className="relative mt-32 w-screen overflow-hidden pb-2">
             <motion.div
                 drag="x"
                 dragConstraints={{
@@ -98,10 +98,18 @@ const Images = ({ imgIndex, images }) => {
 };
 
 const ResponsiveComponent = () => {
+    const { props } = usePage();
+    const { configs } = props;
+    const main_link1 = configs.main_link1;
+    const main_link2 = configs.main_link2;
+    const main_link3 = configs.main_link3;
     return (
         <div className="pointer-events-auto absolute inset-0 z-40 flex items-end justify-center">
             <div className="flex w-fit max-w-xl items-center justify-evenly gap-1 rounded-lg bg-[#07b8b2] p-2 sm:flex-col md:flex-row md:gap-2 md:p-4 lg:gap-4">
-                <Link className="transfrom flex items-center rounded-sm text-cyan-500 transition-all hover:scale-110 hover:text-indigo-700 sm:mb-0">
+                <Link
+                    href={main_link1}
+                    className="transfrom flex items-center rounded-sm text-cyan-500 transition-all hover:scale-110 hover:text-indigo-700 sm:mb-0"
+                >
                     <div className="w-fit rounded-full bg-white p-1 md:p-3">
                         <div className="text-xs sm:text-sm md:text-2xl">
                             <FaUserDoctor />
@@ -113,8 +121,14 @@ const ResponsiveComponent = () => {
                         </p>
                     </div>
                 </Link>
-                <Link
-                    href="/"
+                <button
+                    onClick={() => {
+                        window.open(
+                            main_link2,
+                            '_blank',
+                            'noopener,noreferrer',
+                        );
+                    }}
                     className="transfrom flex items-center rounded-sm text-cyan-500 transition-all hover:scale-110 hover:text-indigo-700 sm:mb-0"
                 >
                     <div className="w-fit rounded-full bg-white p-1 md:p-3">
@@ -127,9 +141,9 @@ const ResponsiveComponent = () => {
                             Pendaftaran & Antrian
                         </p>
                     </div>
-                </Link>
+                </button>
                 <Link
-                    href="/contact/kontak-kami"
+                    href={main_link3}
                     className="transfrom flex items-center rounded-sm text-cyan-500 transition-all hover:scale-110 hover:text-indigo-700 sm:mb-0"
                 >
                     <div className="w-fit rounded-full bg-white p-1 md:p-3">

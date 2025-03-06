@@ -3,7 +3,7 @@ import NavLink from '@/Components/Junk/NavLink';
 const DropdownContent = ({ items, isMobile }) => {
     return (
         <div
-            className={`${isMobile ? 'w-full bg-white' : 'w-64 rounded-lg p-6 text-lg shadow-xl'}`}
+            className={`${isMobile ? 'w-full bg-white' : 'w-64 rounded-lg p-6 text-lg shadow-xl'} lg:text-lg`}
         >
             <ul
                 className={` ${isMobile ? 'ml-2 w-full border-l-2 border-neutral-600' : 'dropdown-content absolute right-0 w-full rounded-lg bg-white py-2 text-lg shadow-xl'} `}
@@ -20,7 +20,7 @@ const DropdownContent = ({ items, isMobile }) => {
                         <NavLink
                             href={route(item.route)}
                             active={route().current(item.routeName)}
-                            className="w-full"
+                            className="w-full lg:text-lg"
                         >
                             {item.label}
                         </NavLink>

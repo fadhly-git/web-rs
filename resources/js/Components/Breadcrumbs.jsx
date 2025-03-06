@@ -6,14 +6,16 @@ import {
     temp,
 } from '@/MenuItems';
 import { Link, usePage } from '@inertiajs/react';
+import { useEffect, useState } from 'react';
 import { HiChevronRight, HiHome } from 'react-icons/hi';
 
 export const Breadcrumbs = () => {
-    const { url, component } = usePage();
-
-    if (component === 'Home') {
-        return null;
-    }
+    const { url } = usePage();
+    const currentUrl = window.location.pathname;
+    const { props } = usePage();
+    const [not, setNot] = useState(true);
+    const haeding =
+        props.news && props.news.length > 0 ? props.news[0].slug_berita : '';
 
     // Menggabungkan semua items menu untuk pencarian
     const allMenuItems = [
@@ -23,16 +25,27 @@ export const Breadcrumbs = () => {
         ...contactItems,
         ...temp,
     ];
+    const currentRoute = currentUrl.split('/').pop();
+
+    useEffect(() => {
+        if (currentRoute === 'berita-terkini') {
+            setNot(false);
+        }
+    }, [currentRoute]);
+
+    if (currentUrl === '/') {
+        return null;
+    }
 
     // Fungsi untuk mendapatkan breadcrumb items
     const getBreadcrumbItems = () => {
-        // Jika component name adalah 'Home', return empty array
-        if (component === 'Home') return [];
+        // Jika url adalah '/', return empty array
+        if (currentUrl === '/') return [];
 
-        const currentRoute = component;
         const menuItem = allMenuItems.find(
             (item) =>
-                item.route === currentRoute || item.routeName === currentRoute,
+                item.route.split('.').at(1) == currentRoute ||
+                item.routeName == currentRoute,
         );
 
         if (!menuItem) return [];
@@ -56,7 +69,7 @@ export const Breadcrumbs = () => {
     const breadcrumbItems = getBreadcrumbItems();
 
     return (
-        <div className="flex w-full justify-center bg-slate-100 px-4 py-3 pt-32 text-sm text-gray-500">
+        <div className="flex w-screen justify-center bg-slate-100 px-4 py-3 pt-32 text-sm text-gray-500">
             <div className="flex h-full w-full max-w-6xl items-center">
                 <Link
                     href="/"
@@ -80,6 +93,13 @@ export const Breadcrumbs = () => {
                         </Link>
                     </div>
                 ))}
+                {haeding && not && (
+                    <div className="ml-auto flex">
+                        <h2 className="text-lg font-bold text-zinc-700">
+                            {haeding}
+                        </h2>
+                    </div>
+                )}
             </div>
         </div>
     );

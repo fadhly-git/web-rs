@@ -84,7 +84,7 @@ class KategoriResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListKategoris::route('/'),
+            'index' => Pages\ListKategori::route('/'),
             'create' => Pages\CreateKategori::route('/create'),
             'edit' => Pages\EditKategori::route('/{record}/edit'),
         ];

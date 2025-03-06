@@ -5,6 +5,7 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 export default {
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './vendor/awcodes/filament-tiptap-editor/resources/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.jsx',
@@ -18,5 +19,5 @@ export default {
         },
     },
 
-    plugins: [forms],
+    plugins: [forms, require('@tailwindcss/typography')],
 };

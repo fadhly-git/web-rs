@@ -1,7 +1,15 @@
+import { usePage } from '@inertiajs/react';
 import { motion } from 'framer-motion';
 import { Block } from './BentoImg';
 
 export const ImgBlock = () => {
+    const { configs } = usePage().props;
+    const img = configs.gambar;
+    const text = configs.iklan;
+    let link = null;
+    if (configs.link_janji_temu) {
+        link = configs.link_janji_temu;
+    }
     return (
         <div className="leanding-tight min-h-full bg-white px-4 py-12 text-zinc-100">
             <motion.div
@@ -18,25 +26,29 @@ export const ImgBlock = () => {
                     }}
                     className="col-span-12 row-span-2 h-64 items-center justify-center bg-cover bg-center md:col-span-12 md:h-[30vw] md:w-full"
                     style={{
-                        backgroundImage: 'url("/imgs/nature/1.jpg")',
+                        with: '100%',
+                        backgroundImage: `url("/storage/${img}")`,
                     }}
                 >
-                    <div className="flex h-full flex-col items-center justify-center rounded-lg bg-black/30">
-                        <h1 className="text-center text-lg font-bold md:text-3xl">
-                            Temukan Perawatan Terbaik untuk Kesehatan Anda
-                        </h1>
-                        <div className="max-w-xl">
-                            <p className="text-center text-sm md:text-center md:text-xl">
-                                Di Rumah Sakit Kami, kami memahami bahwa setiap
-                                pasien memiliki kebutuhan yang unik. Dengan
-                                beragam layanan unggulan kami, kami berkomitmen
-                                untuk memberikan perawatan berkualitas tinggi
-                                yang disesuaikan dengan kebutuhan Anda.
-                            </p>
-                        </div>
-                        <button className="transfrom mt-5 w-fit rounded-lg bg-[#07b8b2] px-4 py-2 text-xs text-white transition-all duration-300 hover:scale-110 hover:bg-cyan-600 hover:font-extrabold md:mt-12 md:text-xl">
-                            Buat Janji Temu
-                        </button>
+                    <div className="flex h-full flex-col items-center justify-center rounded-lg bg-white/30">
+                        <div
+                            className="prose w-full text-center text-sm font-semibold lg:text-lg"
+                            dangerouslySetInnerHTML={{ __html: text }}
+                        />
+                        {link && (
+                            <button
+                                onClick={() => {
+                                    window.open(
+                                        link,
+                                        '_blank',
+                                        'noopener,noreferrer',
+                                    );
+                                }}
+                                className="transfrom mt-5 w-fit rounded-lg bg-[#07b8b2] px-4 py-2 text-xs text-white transition-all duration-300 hover:scale-110 hover:bg-cyan-600 hover:font-extrabold md:mt-12 md:text-xl"
+                            >
+                                Buat Janji Temu
+                            </button>
+                        )}
                     </div>
                 </Block>
             </motion.div>

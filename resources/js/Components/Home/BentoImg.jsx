@@ -1,7 +1,9 @@
+import { usePage } from '@inertiajs/react';
 import { motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 
 export const BentoImg = () => {
+    const { configs } = usePage().props;
     return (
         <div className="bg-slate-100 px-4 py-12 text-zinc-50">
             <motion.div
@@ -12,10 +14,16 @@ export const BentoImg = () => {
                 }}
                 className="mx-auto grid max-w-6xl grid-flow-dense grid-cols-12 gap-4"
             >
-                <ImgBlock />
-                <TextBlock />
-                <TextBlock />
-                <ImgBlock />
+                <ImgBlock img={configs.gambar_layanan_medis} />
+                <TextBlock
+                    text={configs.layanan_medis}
+                    link={configs.link_medis}
+                />
+                <TextBlock
+                    text={configs.layanan_penunjang}
+                    link={configs.link_penunjang}
+                />
+                <ImgBlock img={configs.gambar_layanan_penunjang} />
             </motion.div>
         </div>
     );
@@ -48,25 +56,26 @@ export const Block = ({ className, ...rest }) => {
     );
 };
 
-const TextBlock = () => (
+const TextBlock = ({ text, link }) => (
     <Block className="col-span-12 row-span-2 border border-slate-300 bg-slate-200 md:col-span-7">
-        <span className="text-md text-zinc-700">Layanan medis</span>
-        <h1 className="mb-6 text-xl font-medium leading-tight text-zinc-700">
-            Profesionalitas dan religiusitas dalampelayanan kesehatan
-        </h1>
-        <p className="mb-6 text-base text-zinc-700">
-            Assalamu’alaikum, dengan penuh komitmen dan layanan prima, dengan
-            dilandasi Amanah, Lengkap, Mutu, Antusias, Universal dan Nyaman,
-            kami selalu siap menjaga kesehatan anda. Dengan posisi rumah sakit
-            yang strategis, maka kecepatan akses semakin terjangkau.
-        </p>
-        <button className="transfrom w-fit rounded-lg bg-[#07b8b2] px-4 py-2 text-white transition-all duration-300 hover:scale-110 hover:bg-cyan-600">
-            Baca Selengkapnya
-        </button>
+        <div
+            className="custom-prose prose lg:text-lg"
+            dangerouslySetInnerHTML={{ __html: text }}
+        />
+        {link && (
+            <button
+                onClick={() => {
+                    window.open(link, '_blank', 'noopener,noreferrer');
+                }}
+                className="transfrom mt-2 w-fit rounded-lg bg-[#07b8b2] px-4 py-2 text-white transition-all duration-300 hover:scale-110 hover:bg-cyan-600"
+            >
+                Baca Selengkapnya
+            </button>
+        )}
     </Block>
 );
 
-const ImgBlock = () => (
+const ImgBlock = ({ img }) => (
     <>
         <Block
             whileHover={{
@@ -74,7 +83,7 @@ const ImgBlock = () => (
             }}
             className="col-span-12 row-span-2 h-64 bg-cover bg-center md:col-span-5 md:h-full"
             style={{
-                backgroundImage: 'url("/imgs/nature/1.jpg")',
+                backgroundImage: `url("/storage/${img}")`,
             }}
         ></Block>
     </>

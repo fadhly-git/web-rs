@@ -1,20 +1,21 @@
+// Dashboard page
 import { Bento } from '@/Components/Bento';
+import { SwipeCarousel } from '@/Components/Carousel';
 import { BentoImg } from '@/Components/Home/BentoImg';
-import { SwipeCarousel } from '@/Components/Home/Carousel';
 import { DirSpeech } from '@/Components/Home/DirSpeech';
 import { ImgBlock } from '@/Components/Home/ImgPdftrn';
 import { News } from '@/Components/Home/News';
 import HomeLayout from '@/Layouts/HomeLayout';
-import { Head } from '@inertiajs/react';
+import { Head, usePage } from '@inertiajs/react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-const sectionVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-};
-
 export default function Dashboard() {
+    const { banners } = usePage().props;
+
+    const gambar = banners.map((banner) => {
+        return banner.gambar;
+    });
     const { ref: sectionRef1, inView: sectionInView1 } = useInView({
         triggerOnce: true,
         threshold: 0.1,
@@ -41,7 +42,10 @@ export default function Dashboard() {
     });
     return (
         <>
-            <Head title="Beranda" />
+            <Head>
+                <title>Beranda</title>
+                <meta name="description" content="home" />
+            </Head>
             <HomeLayout>
                 <motion.div
                     ref={sectionRef1}
@@ -49,9 +53,8 @@ export default function Dashboard() {
                     animate={sectionInView1 ? 'visible' : 'hidden'}
                     variants={sectionVariants}
                     transition={{ duration: 0.5 }}
-                    className="mt-32"
                 >
-                    <SwipeCarousel />
+                    <SwipeCarousel images={gambar} />
                 </motion.div>
                 <motion.div
                     className="w-full"
@@ -106,3 +109,8 @@ export default function Dashboard() {
         </>
     );
 }
+
+const sectionVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+};
