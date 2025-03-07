@@ -271,12 +271,6 @@ const Ziggy = {
             uri: 'sanctum/csrf-cookie',
             methods: ['GET', 'HEAD'],
         },
-        telescope: {
-            uri: 'telescope/{view?}',
-            methods: ['GET', 'HEAD'],
-            wheres: { view: '(.*)' },
-            parameters: ['view'],
-        },
         'livewire.update': { uri: 'livewire/update', methods: ['POST'] },
         'livewire.upload-file': {
             uri: 'livewire/upload-file',

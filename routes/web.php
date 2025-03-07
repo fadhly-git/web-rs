@@ -43,6 +43,15 @@ Route::group(['prefix'=>'service'], function(){
 
     Route::get('fasilitas-umum', [Service::class, 'FasilitasUmum'])
     ->name('service.fasilitas-umum');
+
+    Route::get('pelayanan-unit-khusus',[Service::class, 'PelayanUnitKhusus'])
+    ->name('service.pelayanan-unit-khusus');
+
+    Route::get('pelayanan-penunjang', [Service::class, 'PelayananPenunjang'])
+    ->name('service.pelayanan-penunjang');
+
+    Route::get('medical-check-up', [Service::class, 'MedicalCheckUp'])
+    ->name('service.medical-check-up');
 });
 
 //route news
@@ -52,6 +61,9 @@ Route::group(['prefix'=>'news'], function(){
 
     Route::get('galeri-kegiatan', [News::class, 'GaleriKegiatan'])
     ->name('news.galeri-kegiatan');
+
+    Route::get('health-article', [News::class, 'HealthArticle'])
+    ->name('news.health-article');
 });
 
 Route::group(['prefix'=>'contact'], function(){
@@ -78,36 +90,5 @@ Route::get('article/{slug}', [main::class, 'index']);
 
 Route::get('temp', [Temp::class, 'index'])->name('temp');
 
-
-
-
-
-// Service Items Routes with Prefix
-Route::prefix('service')->group(function (){
-
-    Route::get('rawat-inap', function () {
-        return Inertia::render('Service/RawatInap');
-    })->name('service.rawat-inap');
-
-    Route::get('pelayanan-unit-khusus', function () {
-        return Inertia::render('Service/PelayananUnitKhusus');
-    })->name('service.pelayanan-unit-khusus');
-
-    Route::get('pelayanan-penunjang', function () {
-        return Inertia::render('Service/PelayananPenunjang');
-    })->name('service.pelayanan-penunjang');
-
-    Route::get('medical-check-up', function () {
-        return Inertia::render('Service/MedicalCheckUp');
-    })->name('service.medical-check-up');
-});
-
-// News Items Routes with Prefix
-Route::prefix('news')->group(function (){
-
-    Route::get('health-articles', function () {
-        return Inertia::render('News/HealthArticles');
-    })->name('news.health-articles');
-});
 
 

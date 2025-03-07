@@ -1,4 +1,4 @@
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -6,6 +6,7 @@ import { FiArrowRight } from 'react-icons/fi';
 import { IoCalendarOutline } from 'react-icons/io5';
 
 export const News = () => {
+    const { configs } = usePage().props;
     const [posts, setPosts] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
@@ -32,10 +33,12 @@ export const News = () => {
                         Berita
                     </h1>
                     <div className="flex justify-between">
-                        <p className="mt-3 text-sm text-gray-500 md:text-xl">
-                            Blogs that are loved by the community. Updated every
-                            hour.
-                        </p>
+                        <div
+                            className="custom-prose prose"
+                            dangerouslySetInnerHTML={{
+                                __html: configs.news,
+                            }}
+                        />
                         <Link
                             href="/news/berita-terkini"
                             className="inline-flex items-center gap-2 rounded-lg bg-[#07b8b2] px-4 py-2 text-white transition-all duration-300 hover:scale-105 hover:bg-cyan-600"

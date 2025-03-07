@@ -13,7 +13,9 @@ export default function Index() {
                 <Head title={`${newsOut.slug_berita}`} />
             ) : null}
             <HomeLayout>
-                {newsOut.gambar ? <ImgBanners img={newsOut.gambar} /> : null}
+                {newsOut.gambar ? (
+                    <ImgBanners img={newsOut.gambar} className="mt-32" />
+                ) : null}
                 <div className="mb-12 flex w-full items-center">
                     <div className="mx-auto flex w-full max-w-7xl items-center justify-center">
                         <div

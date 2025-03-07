@@ -17,7 +17,7 @@ export default function GuestLayout({ children }) {
             <div className="flex w-screen flex-col items-center justify-between">
                 <nav className="fixed left-0 right-0 top-0 z-50 border-b border-gray-100 bg-white">
                     <div className="items-center justify-center bg-[#07b8b2]">
-                        <div className="mx-auto flex h-10 w-full max-w-6xl items-center justify-center gap-2 p-1 text-[16px] text-white sm:justify-between sm:gap-3 sm:text-base lg:text-xl">
+                        <div className="mx-auto flex h-10 w-full max-w-6xl items-center justify-center gap-2 p-1 text-[12px] text-white sm:justify-between sm:gap-3 sm:text-base lg:text-xl">
                             <button
                                 onClick={() =>
                                     window.open(

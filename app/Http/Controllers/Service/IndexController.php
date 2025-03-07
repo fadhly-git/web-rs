@@ -17,7 +17,7 @@ class IndexController
         $menuData = $menu->getall();
         $newsData = $news->show('Doktor');
         $configData = $configs->get(); 
-        return Inertia::render('Service/Dokter', array_merge($configData, $newsData, $menuData));
+        return Inertia::render('layout/index', array_merge($configData, $newsData, $menuData));
     }
 
     public function Poliklinik() {
@@ -27,7 +27,7 @@ class IndexController
         $menuData = $menu->getall();
         $newsData = $news->show('Poliklinik');
         $configData = $configs->get(); 
-        return Inertia::render('Service/Poliklinik', array_merge($configData, $newsData, $menuData));
+        return Inertia::render('layout/index', array_merge($configData, $newsData, $menuData));
     }
 
     public function JadwalDokter() {
@@ -35,9 +35,9 @@ class IndexController
         $news = new News();
         $menu = new Menu();
         $menuData = $menu->getall();
-        $newsData = $news->show('JadwalDokter');
+        $newsData = $news->show('jadwal dokter');
         $configData = $configs->get(); 
-        return Inertia::render('Service/JadwalDokter', array_merge($configData, $newsData, $menuData));
+        return Inertia::render('layout/index', array_merge($configData, $newsData, $menuData));
     }
 
     public function FasilitasUmum() {
@@ -45,8 +45,48 @@ class IndexController
         $news = new News();
         $menu = new Menu();
         $menuData = $menu->getall();
-        $newsData = $news->show('FasilitasUmum');
+        $newsData = $news->show('fasilitas umum');
         $configData = $configs->get(); 
-        return Inertia::render('Service/FasilitasUmum', array_merge($configData, $newsData, $menuData));
+        return Inertia::render('layout/index', array_merge($configData, $newsData, $menuData));
+    }
+
+    public function PelayanUnitKhusus()  {
+        $configs = new Configs();
+        $news = new News();
+        $menu = new Menu();
+        $menuData = $menu->getall();
+        $newsData = $news->show('pelayanan unit khusus');
+        $configData = $configs->get(); 
+        return Inertia::render('layout/index', array_merge($configData, $newsData, $menuData));
+    }
+
+    public function PelayananPenunjang()  {
+        $configs = new Configs();
+        $news = new News();
+        $menu = new Menu();
+        $menuData = $menu->getall();
+        $newsData = $news->show('pelayanan penunjang');
+        $configData = $configs->get(); 
+        return Inertia::render('layout/index', array_merge($configData, $newsData, $menuData));
+    }
+
+    public function RawatInap() {
+        $configs = new Configs();
+        $news = new News();
+        $menu = new Menu();
+        $menuData = $menu->getall();
+        $newsData = $news->show('rawat inap');
+        $configData = $configs->get(); 
+        return Inertia::render('layout/index', array_merge($configData, $newsData, $menuData));
+    }
+
+    public function MedicalCheckUp()  {
+        $configs = new Configs();
+        $news = new News();
+        $menu = new Menu();
+        $menuData = $menu->getall();
+        $newsData = $news->show('medical check up');
+        $configData = $configs->get(); 
+        return Inertia::render('layout/index', array_merge($configData, $newsData, $menuData));
     }
 }

@@ -73,6 +73,19 @@ export const SwipeCarousel = ({ images }) => {
 };
 
 const Images = ({ imgIndex, images }) => {
+    const [height, setHeight] = useState('');
+
+    useEffect(() => {
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+            setHeight('16rem');
+        } else {
+            setHeight('35vw');
+        }
+    }, []);
+
+    console.log(height);
+
     return (
         <>
             {images.map((imgSrc, idx) => {
@@ -83,7 +96,7 @@ const Images = ({ imgIndex, images }) => {
                             backgroundImage: `url(/storage/${imgSrc})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
-                            height: '35vw',
+                            height: `${height}`,
                         }}
                         animate={{
                             scale: imgIndex === idx ? 0.95 : 0.85,

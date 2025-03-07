@@ -30,4 +30,14 @@ class IndexController
         return Inertia::render('layout/index', array_merge($configData, $newsData, $menuData));
     }
 
+    public function HealthArticle(){
+        $configs = new Configs();
+        $news = new News();
+        $menu = new Menu();
+        $menuData = $menu->getall();
+        $newsData = $news->show('health article');
+        $configData = $configs->get(); 
+        return Inertia::render('layout/index', array_merge($configData, $newsData, $menuData));
+    }
+
 }
