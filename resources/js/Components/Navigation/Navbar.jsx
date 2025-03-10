@@ -34,7 +34,7 @@ const Navbar = () => {
                         routeName: `About/${menu.nama_menu.replace(/\s+/g, '')}`,
                     });
                     break;
-                case 'service':
+                case 'services':
                     categorizedMenus.SERVICE.push({
                         label: menu.nama_menu,
                         route: menu.route,

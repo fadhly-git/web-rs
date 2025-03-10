@@ -19,7 +19,9 @@ class ConfigResource extends Resource
 {
     protected static ?string $model = Config::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-cog';
+    protected static ?string $navigationLabel = 'Config';
+
+    protected static ?string $navigationGroup = 'Konfigurasi Sistem';
 
     public static function form(Form $form): Form
     {

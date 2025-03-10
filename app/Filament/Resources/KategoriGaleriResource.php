@@ -17,7 +17,9 @@ class KategoriGaleriResource extends Resource
 {
     protected static ?string $model = KategoriGaleri::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationLabel = 'Kategori Galeri';
+
+    protected static ?string $navigationGroup = 'Sumber Daya';
 
     public static function form(Form $form): Form
     {

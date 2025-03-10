@@ -17,7 +17,9 @@ class KategoriAgendaResource extends Resource
 {
     protected static ?string $model = KategoriAgenda::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationLabel = 'Kategori Agenda';
+
+    protected static ?string $navigationGroup = 'Sumber Daya';
 
     public static function form(Form $form): Form
     {

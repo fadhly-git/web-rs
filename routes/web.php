@@ -7,11 +7,7 @@ use App\Http\Controllers\Service\IndexController as Service;
 use App\Http\Controllers\News\IndexController as News;
 use App\Http\Controllers\Main\MainController as Main;
 use App\Http\Controllers\Temp;
-use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-use App\Http\Controllers\NewsController;
-use App\Http\Controllers\Configs;
 
 Route::get('/',[Home::class, 'index'])->name('home');
 
@@ -77,13 +73,6 @@ Route::group(['prefix'=>'contact'], function(){
     ->name('contact.survey-kepuasan');
 });
 
-// Route api
-Route::group(['prefix'=>'api'], function(){
-    Route::get('menu-items', [MenuController::class, 'index']);
-    Route::get('news', [NewsController::class, 'index']);
-    Route::get('news/{slug}', [NewsController::class, 'showApi']);
-    Route::get('configs', [Configs::class, 'index']);
-});
 
 // route article 
 Route::get('article/{slug}', [main::class, 'index']); 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Http\Controllers\Configs;
 use App\Http\Controllers\NewsController as News;
+use App\Http\Controllers\Service\JadwalDokterController as Jadwal;
 use App\Http\Controllers\MenuController as Menu;
 
 class IndexController
@@ -32,12 +33,13 @@ class IndexController
 
     public function JadwalDokter() {
         $configs = new Configs();
-        $news = new News();
         $menu = new Menu();
+        $jadwal = new Jadwal();
+        $dokterJaga = $jadwal->DokterJaga();
+        $jadwalData = $jadwal->index();
         $menuData = $menu->getall();
-        $newsData = $news->show('jadwal dokter');
         $configData = $configs->get(); 
-        return Inertia::render('layout/index', array_merge($configData, $newsData, $menuData));
+        return Inertia::render('Service/JadwalDokter', array_merge($configData, $jadwalData, $menuData, $dokterJaga));
     }
 
     public function FasilitasUmum() {

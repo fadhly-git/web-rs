@@ -17,7 +17,9 @@ class DownloadResource extends Resource
 {
     protected static ?string $model = Download::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-cloud-arrow-down';
+    protected static ?string $navigationLabel = 'Download'; 
+
+    protected static ?string $navigationGroup = 'Sumber Daya';
 
     public static function form(Form $form): Form
     {

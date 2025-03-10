@@ -84,8 +84,6 @@ const Images = ({ imgIndex, images }) => {
         }
     }, []);
 
-    console.log(height);
-
     return (
         <>
             {images.map((imgSrc, idx) => {

@@ -13,12 +13,12 @@ class MenuController
 
     public function index()
     {
-        $menu = Menu::where('status', 'AKTIF')->get()->toArray();
+        $menu = Menu::where('status', 1)->get()->toArray();
         return response()->json($menu);
     }
 
     public function getall(){
-        $menu = Menu::where('status', 'AKTIF')->get()->toArray();
+        $menu = Menu::where('status', 1)->get()->toArray();
         return [
             'menu' => $menu
         ];

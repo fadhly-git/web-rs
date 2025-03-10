@@ -17,7 +17,9 @@ class KonfigurasiResource extends Resource
 {
     protected static ?string $model = Konfigurasi::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-wrench-screwdriver';
+    protected static ?string $navigationLabel = 'Konfigurasi';
+
+    protected static ?string $navigationGroup = 'Sumber Daya';
 
     public static function form(Form $form): Form
     {

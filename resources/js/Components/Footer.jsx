@@ -191,8 +191,8 @@ export const Footer = () => {
 
             <div className="col-span-full mt-8 place-items-center justify-center border-t py-6 sm:flex">
                 <div className="mt-4 text-sm sm:mt-0">
-                    &copy; {new Date().getFullYear()} RS PKU BOJA All rights
-                    reserved.
+                    &copy; {new Date().getFullYear()} RS PKU Muhammadiyah Boja
+                    All rights reserved.
                 </div>
             </div>
         </footer>

@@ -18,6 +18,9 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\Filament\Widgets\AgendaOverview;
+use Filament\Enums\ThemeMode;
+use Filament\Navigation\NavigationGroup;
+use Filament\Support\Assets\Theme;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -29,7 +32,12 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'danger' => Color::Rose,
+                'gray' => Color::Gray,
+                'info' => Color::Blue,
+                'primary' => Color::Indigo,
+                'success' => Color::Emerald,
+                'warning' => Color::Orange,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
@@ -40,6 +48,30 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 Widgets\AccountWidget::class,
                 AgendaOverview::class,
+            ])
+            ->navigationGroups([
+                NavigationGroup::make()
+                    ->label('Dashboard')
+                    ->icon('heroicon-o-home'),
+                NavigationGroup::make()
+                    ->label('Manajemen Konten')
+                    ->icon('heroicon-o-presentation-chart-bar'),
+                NavigationGroup::make()
+                    ->label('Pengaturan Tampilan')
+                    ->icon('heroicon-o-device-phone-mobile'),
+                NavigationGroup::make()
+                    ->label('Manajemen Pengguna')
+                    ->icon('heroicon-o-user-group'),
+                NavigationGroup::make()
+                    ->label('Konfigurasi Sistem')
+                    ->icon('heroicon-o-command-line'),
+                NavigationGroup::make()
+                    ->label('Jadwal Dokter')
+                    ->icon('heroicon-o-calendar-days'),
+                NavigationGroup::make()
+                    ->label('Sumber Daya')
+                    ->icon('heroicon-o-bolt'),
+                
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -54,6 +86,10 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ])->sidebarCollapsibleOnDesktop();
+            ])->sidebarCollapsibleOnDesktop()
+            // ->brandLogo(asset('imgs/logo.png'))
+            // ->brandName('Filament')
+            ->favicon(asset('imgs/logo.png'))
+            ->defaultThemeMode(ThemeMode::Light);
     }
 }

@@ -17,7 +17,9 @@ class MenuResource extends Resource
 {
     protected static ?string $model = Menu::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-inbox-stack';
+    protected static ?string $navigationLabel = 'Menu';
+
+    protected static ?string $navigationGroup = 'Pengaturan Tampilan';
 
     public static function form(Form $form): Form
     {
@@ -33,12 +35,12 @@ class MenuResource extends Resource
                         'contact' => 'Kontak',
                     ])
                     ->label('Kategori'),
-                Forms\Components\Select::make('status')
-                ->options([
-                    'AKTIF' => 'AKTIF',
-                    'TIDAK' => 'TIDAK',
-                ])
-                ->required()->label('Status'),
+                Forms\Components\Toggle::make('status')
+                    ->onColor('success')
+                    ->offColor('danger')
+                    ->inline(false)
+                    ->required()
+                    ->label('Status'),
             ]);
     }
 
@@ -62,11 +64,8 @@ class MenuResource extends Resource
                     ];
                     return $options[$state] ?? $state;
                 }),
-                Tables\Columns\TextColumn::make('status')
-                    ->formatStateUsing(function ($state) {
-                        return $state === 'AKTIF' ? 'AKTIF' : 'TIDAK';
-                    })
-                    ->searchable()
+                Tables\Columns\ToggleColumn::make('status')
+                    
                     ->label('Status'),
             ])
             ->filters([

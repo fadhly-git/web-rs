@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'RS PKU Boja'),
+    'name' => env('APP_NAME', 'RS PKU Muhammadiyah Boja'),
 
     /*
     |--------------------------------------------------------------------------

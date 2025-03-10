@@ -1,4 +1,19 @@
 @import '../../../../vendor/filament/filament/resources/css/theme.css';
-@import '../../../../vendor/awcodes/filament-tiptap-editor/resources/css/plugin.css';
 
 @config 'tailwind.config.js';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-color: 243 244 246; /* Light gray */
+    --primary-color-hover: 156 163 175; /* Gray hover */
+}
+
+.filament-page {
+    @apply bg-gray-100;
+}
+
+.fi-sidebar {
+    background-color: #fafafa;
+}

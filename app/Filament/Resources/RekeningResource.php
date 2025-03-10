@@ -17,7 +17,9 @@ class RekeningResource extends Resource
 {
     protected static ?string $model = Rekening::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-credit-card';
+    protected static ?string $navigationLabel = 'Rekening';
+
+    protected static ?string $navigationGroup = 'Sumber Daya';
 
     public static function form(Form $form): Form
     {

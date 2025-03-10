@@ -17,7 +17,9 @@ class KategoriDownloadResource extends Resource
 {
     protected static ?string $model = KategoriDownload::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationLabel = 'Kategori Download';
+
+    protected static ?string $navigationGroup = 'Sumber Daya';
 
     public static function form(Form $form): Form
     {

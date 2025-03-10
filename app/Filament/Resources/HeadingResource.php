@@ -17,7 +17,9 @@ class HeadingResource extends Resource
 {
     protected static ?string $model = Heading::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-globe-alt';
+    protected static ?string $navigationLabel = 'Heading';
+
+    protected static ?string $navigationGroup = 'Sumber Daya';
 
     public static function form(Form $form): Form
     {
